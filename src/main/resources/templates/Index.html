@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>E-Commerce Store</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>My E-Commerce Store</h1>
+
+<h2>Products</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+    </tr>
+</table>
+
+<hr>
+
+<h2>Add To Cart</h2>
+
+<form action="/cart/add" method="post">
+
+    <label>User ID:</label>
+    <input type="number" name="userId">
+    <br><br>
+
+    <label>Product ID:</label>
+    <input type="number" name="productId">
+    <br><br>
+
+    <label>Quantity:</label>
+    <input type="number" name="quantity">
+    <br><br>
+
+    <button type="submit">Add To Cart</button>
+
+</form>
+
+</body>
+</html>

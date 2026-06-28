@@ -39,9 +39,19 @@ public class ProductService {
 
     }
 
-    public List<Product> getAllProducts(){
+
+
+    public List<ProductResponseDto> getAllProducts() {
         List<Product> products = productRepository.findAll();
-          return products;
+
+        return products.stream()
+                .map(product -> new ProductResponseDto(
+                        product.getName(),
+                        product.getPrice(),
+                        product.getCategory() != null ? product.getCategory().getId() : null,
+                        product.getCategory() != null ? product.getCategory().getName() : null
+                ))
+                .toList();
     }
 
 

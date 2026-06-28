@@ -6,5 +6,5 @@ import java.math.BigDecimal;
         String name,
         BigDecimal price,
         Long categoryId,
-        String categoryName
+       String categoryName
 ) {}
